@@ -16,7 +16,6 @@ export const CurrencyCalculator: FC<CurrencyCalculatorProps> = () => {
   const [chosenOutCurrency, setChosenOutCurrency] = useState('UAH')
   const [buttonTrue, setButtonTrue] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
-  console.log(`button: ${buttonTrue}`, `error: ${errorMessage}`);
 
   const getData = () => {
     axios.get(`https://api.apilayer.com/currency_data/convert?to=${chosenOutCurrency}&from=${chosenInCurrency}&amount=${amount}`, {
@@ -30,10 +29,9 @@ export const CurrencyCalculator: FC<CurrencyCalculatorProps> = () => {
   }
   useEffect(
     () => {
-      if (buttonTrue && (amount === "" || amount === "e")) { setErrorMessage("Type a number") }
-      else if (buttonTrue && amount.length > 11) setErrorMessage("The amount cannot be longer than 11 symbols")
+      if (buttonTrue && (amount === "" || amount === "e")) { setErrorMessage("Type a number"); setButtonTrue(false) }
+      else if (buttonTrue && amount.length > 11) { setErrorMessage("The amount cannot be longer than 11 symbols"); setButtonTrue(false) }
       else if (buttonTrue && errorMessage === '') {
-        console.log("useEffectOn");
         getData()
         setButtonTrue(false)
       }

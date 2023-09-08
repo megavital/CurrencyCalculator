@@ -76,7 +76,7 @@ div[role="grid"] {
          }
     }
             .input:focus {
-           box-shadow: 0 0 0 .15vw #E06D06;
+           box-shadow: 0 0 0 .15vw #FFC53A;
            border: none;
            background-color: #FCFFAD   
         }
@@ -129,7 +129,7 @@ white-space: nowrap;
         background-size: 1em; 
 
         &:focus {
-             box-shadow: 0 0 0 .15vw  #E06D06;
+             box-shadow: 0 0 0 .15vw  #FFC53A;
              border: none;
              background-color: #FCFFAD
         }
