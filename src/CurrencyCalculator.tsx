@@ -29,8 +29,14 @@ export const CurrencyCalculator: FC<CurrencyCalculatorProps> = () => {
   }
   useEffect(
     () => {
-      if (buttonTrue && (amount === "" || amount === "e")) { setErrorMessage("Type a number"); setButtonTrue(false) }
-      else if (buttonTrue && amount.length > 11) { setErrorMessage("The amount cannot be longer than 11 symbols"); setButtonTrue(false) }
+      if (buttonTrue && (amount === "" || amount === "e")) {
+        setErrorMessage("Type a number")
+        setButtonTrue(false)
+      }
+      else if (buttonTrue && amount.length > 11) {
+        setErrorMessage("The amount cannot be longer than 11 symbols")
+        setButtonTrue(false)
+      }
       else if (buttonTrue && errorMessage === '') {
         getData()
         setButtonTrue(false)
